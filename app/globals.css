@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #08090f;
+  --deep: #0c0d17;
+  --surface: #10111e;
+  --card: #14152b;
+  --border: rgba(255,255,255,0.06);
+  --rim: rgba(255,255,255,0.12);
+  --gold: #e8c97a;
+  --gold-lo: rgba(232,201,122,0.08);
+  --gold-md: rgba(232,201,122,0.18);
+  --gold-hi: rgba(232,201,122,0.35);
+  --teal: #4fd1c5;
+  --teal-lo: rgba(79,209,197,0.07);
+  --text: #dde2ef;
+  --muted: #555a70;
+  --muted2: #7e889e;
+  --err: #ff6b81;
+  --ease: cubic-bezier(0.22,1,0.36,1);
+}
+
+[data-theme="light"] {
+  --ink: #f8f9fc;
+  --deep: #f0f2f7;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --border: rgba(0,0,0,0.08);
+  --rim: rgba(0,0,0,0.15);
+  --gold: #c29347;
+  --gold-lo: rgba(194,147,71,0.15);
+  --gold-md: rgba(194,147,71,0.25);
+  --gold-hi: rgba(194,147,71,0.4);
+  --teal: #2a9d8f;
+  --teal-lo: rgba(42,157,143,0.15);
+  --text: #1a1b26;
+  --muted: #8b95a8;
+  --muted2: #647087;
+  --err: #e63946;
+}
+
+html, body {
+  min-height: 100vh;
+  background: var(--ink);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--deep); }
+::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 4px; }
+
+@keyframes b1f { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(30px,20px) scale(1.05)} }
+@keyframes b2f { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,-25px)} }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.8)} }
+@keyframes spin { to{transform:rotate(360deg)} }
+@keyframes paneIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes chipPop { from{opacity:0;transform:scale(0.8)} to{opacity:1;transform:scale(1)} }
+@keyframes bigPop { from{transform:scale(0) rotate(-200deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
+@keyframes slideDown { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+
+.blob-1 { animation: b1f 9s ease-in-out infinite; }
+.blob-2 { animation: b2f 11s ease-in-out infinite; }
+.pulse-dot { animation: pulse 2.2s ease-in-out infinite; }
+.spin-ring { animation: spin 0.65s linear infinite; }
+.pane-in { animation: paneIn 0.32s var(--ease); }
+.chip-pop { animation: chipPop 0.18s var(--ease); }
+.big-pop { animation: bigPop 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+.slide-down { animation: slideDown 0.2s var(--ease); }
+
+input { caret-color: var(--gold); }
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .print-hide {
+    display: none !important;
+  }
+  /* Remove flex layout for main during print to prevent scrolling issues */
+  main {
+    margin-left: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  /* Reset background for print if needed, but keeping the app's dark theme */
+  @page {
+    margin: 1cm;
+  }
+}

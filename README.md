@@ -15,7 +15,7 @@ npm install
 ```
 
 ### 2. Set up environment variables
-Copy `.env.example` to `.env.local` and fill in your credentials. Keep `.env.local` private and never commit it:
+Copy `.env.example` to `.env.local` and fill in your credentials. Keep `.env.local` private and never commit it. The Supabase service-role key is server-only; never expose it in client-side code:
 - **Supabase**: Create project at supabase.com → Settings → API
 - **OpenAI**: platform.openai.com → API Keys (GPT-4o for questions)
 

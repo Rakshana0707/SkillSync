@@ -15,7 +15,7 @@ npm install
 ```
 
 ### 2. Set up environment variables
-Copy `.env.local` and fill in all your API keys:
+Copy `.env.example` to `.env.local` and fill in your credentials. Keep `.env.local` private and never commit it:
 - **Supabase**: Create project at supabase.com → Settings → API
 - **OpenAI**: platform.openai.com → API Keys (GPT-4o for questions)
 
@@ -101,6 +101,6 @@ skillsync/
 │   └── appStore.ts           # App state (Zustand)
 ├── types/index.ts            # All TypeScript types
 ├── lib/supabase.ts           # Supabase client
-├── .env.local                # API keys (fill these in!)
+├── .env.example              # Environment variable template (no credentials)
 └── SUPABASE_SCHEMA.md        # Full DB schema SQL
 ```
